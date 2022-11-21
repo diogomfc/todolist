@@ -1,0 +1,72 @@
+.task {
+    display: flex;
+    background: var(--gray-500);
+
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.task label {
+    display: flex;
+    font-size: 75%;
+    gap: 0.75rem;
+    align-items: flex-start;
+    color: var(--gray-100);
+    cursor: pointer;
+}
+
+.task label.completed {
+    text-decoration: line-through;
+}
+
+.task label.notCompleted {
+    text-decoration: none;
+}
+
+.task label input[type=checkbox] {
+    display: flex;
+    background: transparent;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.3rem;
+    height: 1.3rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.task label .checkMark input[type=checkbox]:checked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+    background-color: var(--purple-dark);
+    border: 0;
+
+    /* Metade do tamanho -2px da borda */
+    padding-right: calc(0.15625rem - 0.025rem);
+    padding-bottom: calc(0.15625rem - 0.025rem);
+}
+
+.task label .checkMark input[type=checkbox]:checked::after {
+    content: '';
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    width: 0.3125rem;
+    height: 0.53125rem;
+}
+
+.task+.task {
+    margin-top: 0.75rem;
+}
+
+.task svg {
+    margin-left: auto;
+    color: var(--gray-300);
+    cursor: pointer;
+    flex-shrink: 0;
+}
